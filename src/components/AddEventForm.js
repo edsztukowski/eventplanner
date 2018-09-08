@@ -41,27 +41,23 @@ export default class AddEventForm extends React.Component {
         }
     }
 
-    onStartDateChange = (createdAt) => {
-        if (createdAt) {
-            this.setState(() => ({ startDateTime: createdAt }))
-        }
+    onStartDateChange = (e) => {
+        this.setState({
+            startDateTime: new Date(e._d)
+        })
     }
 
-    onEndDateChange = (endAt) => {
-        if (endAt) {
-            this.setState(() => ({ endDateTime: endAt }))
-        }
+    onEndDateChange = (e) => {
+        this.setState({
+            endDateTime: new Date(e)
+        })
     }
 
     onNameChange = (e) => {
         const name = e.target.value;
         this.setState(() => ({ name }));
     };
-
-    onFocusChange = ({ focused }) => {
-        this.setState(() => ({ calendarFocused: focused }));
-      };
-
+    
     render() {
         return (
             <form className="form" onSubmit={this.onSubmit}>
@@ -77,11 +73,12 @@ export default class AddEventForm extends React.Component {
                 <h2>Start Time</h2>
                 <Kronos
                     time={this.state.startDateTime}
+                    onChangeDateTime={this.onStartDateChange}
                 />
                 <h2>End Time</h2>
                 <Kronos
                     time={this.state.endDateTime}
-                   
+                    onChangeDateTime={this.onEndDateChange}
                 />
                
                <div>
