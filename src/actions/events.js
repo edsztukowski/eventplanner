@@ -1,0 +1,12 @@
+
+
+export const addEvent = (event) => ({
+    type: 'ADD_EVENT',
+    event
+});
+
+export const addTempEvent = (tempEvent) => ({
+    type: 'ADD_TEMP_EVENT',
+    tempEvent
+})
+
