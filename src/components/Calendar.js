@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { ReactAgenda, guid  } from 'react-agenda';
 import { addTempEvent } from '../actions/events';
+import moment from 'moment';
  
 
 var colors= {
@@ -35,8 +36,8 @@ handleCellSelection(item){
     tempEvent: {
       _id: guid(),
       name: '',
-      startDateTime: new Date(item),
-      endDateTime: '',
+      startDateTime: moment(item),
+      endDateTime: moment(item).add(30, 'm').toDate(),
       error: ''
     }
   });

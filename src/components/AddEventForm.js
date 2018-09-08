@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import TimeRange from 'react-time-range';
+import Kronos from 'react-kronos';
 
 
 export default class AddEventForm extends React.Component {
@@ -34,8 +34,8 @@ export default class AddEventForm extends React.Component {
             this.props.onSubmit({
                 _id: this.state._id,
                 name: this.state.name,
-                startDateTime: this.state.startDateTime,
-                endDateTime: new Date('2018-09-09T18:00:00.000Z'),
+                startDateTime: new Date(this.state.startDateTime),
+                endDateTime: new Date(this.state.endDateTime),
                 classes       : 'color-2 color-3'
             })
         }
@@ -74,11 +74,16 @@ export default class AddEventForm extends React.Component {
                     value={this.state.name}
                     onChange={this.onNameChange}
                 />
-                <TimeRange
-                    startMoment={moment(this.state.startDateTime).format("hhmm")}
-                    endMoment={this.state.endDateTime}
-                    onChange={this.returnFunction}
+                <h2>Start Time</h2>
+                <Kronos
+                    time={this.state.startDateTime}
                 />
+                <h2>End Time</h2>
+                <Kronos
+                    time={this.state.endDateTime}
+                   
+                />
+               
                <div>
                 <button className="button__blue">Save Event</button>
                </div>
@@ -86,14 +91,3 @@ export default class AddEventForm extends React.Component {
         )
     }
 }
-
-
-
-
-/*
-        _id            :guid(),
-         name          : 'Meeting , dev staff!',
-         startDateTime : new Date(now.getFullYear(), now.getMonth(), now.getDate(), 9, 0),
-         endDateTime   : new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 0),
-         classes       : 'color-1'
-*/
