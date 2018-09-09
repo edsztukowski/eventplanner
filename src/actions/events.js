@@ -10,3 +10,8 @@ export const addTempEvent = (tempEvent) => ({
     tempEvent
 })
 
+export const editEvent = (eventId, updates) => ({
+    type: 'EDIT_EVENT',
+    eventId,
+    updates
+});

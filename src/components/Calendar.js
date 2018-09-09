@@ -46,6 +46,7 @@ handleCellSelection(item){
 
 handleItemEdit(item){
   console.log('handleItemEdit', item)
+  this.props.history.push(`/edit/${item._id}`)
 }
 handleRangeSelection(item){
   console.log('handleRangeSelection', item)

@@ -1,5 +1,6 @@
 import React from 'react';
 import AddEventPage from '../components/AddEventPage';
+import EditEventPage from '../components/EditEventPage';
 import Calendar from '../components/Calendar';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
@@ -11,7 +12,8 @@ const AppRouter = () => (
         <div>
             <Switch>
                 <Route path="/" component={Calendar} exact={true} />
-                <Route path="/add" component={AddEventPage} />
+                <Route path="/add" component={AddEventPage} /> 
+                <Route path="/edit/:id" component={EditEventPage} />
             </Switch>
         </div>
     </Router>

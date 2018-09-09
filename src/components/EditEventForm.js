@@ -8,10 +8,10 @@ export default class AddEventForm extends React.Component {
         super(props);
     
         this.state = {
-            _id: props.tempEvent ? props.tempEvent['_id'] :  '',
-            name: props.tempEvent ? props.tempEvent.name : '',
-            startDateTime: props.tempEvent ? props.tempEvent.startDateTime : '',
-            endDateTime: props.tempEvent ? props.tempEvent.endDateTime : '',
+            _id: props.eventToEdit ? props.eventToEdit['_id'] :  '',
+            name: props.eventToEdit ? props.eventToEdit.name : '',
+            startDateTime: props.eventToEdit ? props.eventToEdit.startDateTime : '',
+            endDateTime: props.eventToEdit ? props.eventToEdit.endDateTime : '',
             error: '',
         }
 
