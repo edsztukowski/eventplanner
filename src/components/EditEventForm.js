@@ -13,6 +13,7 @@ export default class AddEventForm extends React.Component {
             startDateTime: props.eventToEdit ? props.eventToEdit.startDateTime : '',
             endDateTime: props.eventToEdit ? props.eventToEdit.endDateTime : '',
             error: '',
+            description: props.eventToEdit ? props.eventToEdit.description : ''
         }
 
     };
@@ -36,7 +37,8 @@ export default class AddEventForm extends React.Component {
                 name: this.state.name,
                 startDateTime: new Date(this.state.startDateTime),
                 endDateTime: new Date(this.state.endDateTime),
-                classes       : 'color-2 color-3'
+                classes       : 'color-2 color-3',
+                description: this.state.description
             })
         }
     }
@@ -57,6 +59,11 @@ export default class AddEventForm extends React.Component {
         const name = e.target.value;
         this.setState(() => ({ name }));
     };
+
+    onDescriptionChange = (e) => {
+        const description = e.target.value;
+        this.setState(() => ({ description }))
+    }
 
     render() {
         return (
@@ -81,11 +88,11 @@ export default class AddEventForm extends React.Component {
                     onChangeDateTime={this.onEndDateChange}
                     min={this.state.startDateTime}
                 />
-
-               
-               <div>
+                <h2>Description</h2>
+                <textarea value={this.state.description} onChange={this.onDescriptionChange} />               
+                <div>
                     <button className="button__blue">Save Event</button>
-               </div>
+                </div>
             </form>
         )
     }

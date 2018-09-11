@@ -6,15 +6,15 @@ import Kronos from 'react-kronos';
 export default class AddEventForm extends React.Component {
     constructor(props) {
         super(props);
-    
+
         this.state = {
             _id: props.tempEvent ? props.tempEvent['_id'] :  '',
             name: props.tempEvent ? props.tempEvent.name : '',
             startDateTime: props.tempEvent ? props.tempEvent.startDateTime : '',
             endDateTime: props.tempEvent ? props.tempEvent.endDateTime : '',
             error: '',
+            description: ''
         }
-
     };
 
     onNameChange = (e) => {
@@ -29,14 +29,14 @@ export default class AddEventForm extends React.Component {
                 error: 'Please provide name and start date time'
             }))
         } else {
-    
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({
                 _id: this.state._id,
                 name: this.state.name,
                 startDateTime: new Date(this.state.startDateTime),
                 endDateTime: new Date(this.state.endDateTime),
-                classes       : 'color-2 color-3'
+                classes       : 'color-2 color-3',
+                description: this.state.description
             })
         }
     }
@@ -57,6 +57,11 @@ export default class AddEventForm extends React.Component {
         const name = e.target.value;
         this.setState(() => ({ name }));
     };
+
+    onDescriptionChange = (e) => {
+        const description = e.target.value;
+        this.setState(() => ({ description }))
+    }
 
     render() {
         return (
@@ -81,6 +86,7 @@ export default class AddEventForm extends React.Component {
                     onChangeDateTime={this.onEndDateChange}
                     min={this.state.startDateTime}
                 />
+                <textarea value={this.state.description} onChange={this.onDescriptionChange} />
 
                
                <div>
