@@ -1,7 +1,4 @@
 
-import { guid } from 'react-agenda';
-
-var now = new Date();
  
 const eventDefaultState = {
     allEvents: [
@@ -23,6 +20,12 @@ export default (state = eventDefaultState, action = {}) => {
             return {
                 ...state,
                 tempEvent: action.tempEvent
+            }
+
+        case 'REMOVE_EVENT':
+            return {
+                ...state,
+                allEvents: state.allEvents.filter((event) => event._id !== action.eventId)
             }
 
         case 'EDIT_EVENT':

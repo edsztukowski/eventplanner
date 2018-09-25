@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+
 import Kronos from 'react-kronos';
 
 
@@ -13,7 +13,8 @@ export default class AddEventForm extends React.Component {
             startDateTime: props.tempEvent ? props.tempEvent.startDateTime : '',
             endDateTime: props.tempEvent ? props.tempEvent.endDateTime : '',
             error: '',
-            description: ''
+            description: '',
+            employees: []
         }
     };
 
@@ -86,8 +87,9 @@ export default class AddEventForm extends React.Component {
                     onChangeDateTime={this.onEndDateChange}
                     min={this.state.startDateTime}
                 />
-                <textarea value={this.state.description} onChange={this.onDescriptionChange} />
-
+                <div id="event-description">
+                    <textarea value={this.state.description} onChange={this.onDescriptionChange} />
+                </div>
                
                <div>
                     <button className="button__blue">Save Event</button>

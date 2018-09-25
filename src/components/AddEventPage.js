@@ -11,7 +11,7 @@ export class AddEventPage extends React.Component {
     
     render() {
         return (
-           <div><AddEventForm onSubmit={this.onSubmit} tempEvent={this.props.tempEvent.tempEvent} /></div>
+           <div><AddEventForm onSubmit={this.onSubmit} employees={this.props.employees} tempEvent={this.props.tempEvent.tempEvent} /></div>
         )
     }
 }
@@ -21,7 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-    tempEvent: state.events.tempEvent
+    tempEvent: state.events.tempEvent,
+    employees: state.employees
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddEventPage);
