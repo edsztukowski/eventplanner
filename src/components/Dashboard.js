@@ -1,24 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import {connect} from 'react-redux';
 
-const Dashboard = (props) => (
+export default () => (
     <div>
-      {
-        props.events.map((event) => (
-          <ul>
-            <li>
-              {event.name}, {event.location}, {event.date}
-            </li>
-          </ul>
-        ))
-      }
+      <h1>Welcome message</h1>
+      <div className="flex-col">
+        <Link to="/calendar">Calendar</Link>
+        <Link to="/employees">Manage Employees</Link>
+      </div>
     </div>
 )
 
-const mapStateToProps = (state) => {
-    return {
-      events: state.events
-    };
-  };
-  
-  export default connect(mapStateToProps)(Dashboard);

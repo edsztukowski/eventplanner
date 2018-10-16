@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Web Planner</h1>
+          <h1 className="App-title">Event Planner</h1>
         
         </header>
         <AppRouter />

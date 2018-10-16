@@ -37,3 +37,10 @@
 }
 
 /*Form Styles*/
+
+
+/**Layout**/
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}

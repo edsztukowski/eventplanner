@@ -5,7 +5,7 @@ import { addTempEvent } from '../actions/events';
 import moment from 'moment';
  
 
-var colors= {
+var colors = {
   'color-1':"rgba(102, 195, 131 , 1)" ,
   "color-2":"rgba(242, 177, 52, 1)" ,
   "color-3":"rgba(235, 85, 59, 1)"
@@ -55,6 +55,7 @@ handleRangeSelection(item){
     return (
       <div>
         <ReactAgenda
+          startAtTime={10}
           minDate={now}
           maxDate={new Date(now.getFullYear(), now.getMonth()+3)}
           disablePrevButton={false}

@@ -6,7 +6,7 @@ import { editEvent, removeEvent } from '../actions/events';
 export class EditEventPage extends React.Component {
     onSubmit = (event) => {
         this.props.editEvent(this.props.event._id, event);
-        this.props.history.push('/');
+        this.props.history.push('/calendar');
     }
     onRemove = () => {
         this.props.removeEvent(this.props.event._id);

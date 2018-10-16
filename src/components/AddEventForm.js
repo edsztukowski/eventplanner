@@ -71,7 +71,7 @@ export default class AddEventForm extends React.Component {
                 <input 
                     className="text-input"
                     type="text"
-                    placeholder="name"
+                    placeholder="Event Name"
                     autoFocus
                     value={this.state.name}
                     onChange={this.onNameChange}
@@ -88,7 +88,10 @@ export default class AddEventForm extends React.Component {
                     min={this.state.startDateTime}
                 />
                 <div id="event-description">
-                    <textarea value={this.state.description} onChange={this.onDescriptionChange} />
+                    <textarea 
+                        placeholder="Event Description"
+                        value={this.state.description} 
+                        onChange={this.onDescriptionChange} />
                 </div>
                
                <div>

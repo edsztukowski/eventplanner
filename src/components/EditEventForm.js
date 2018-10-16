@@ -89,7 +89,10 @@ export default class AddEventForm extends React.Component {
                     min={this.state.startDateTime}
                 />
                 <h2>Description</h2>
-                <textarea value={this.state.description} onChange={this.onDescriptionChange}  />               
+                <textarea 
+                    value={this.state.description} 
+                    onChange={this.onDescriptionChange}  
+                />               
                 <div>
                     <button className="button__blue">Save Event</button>
                 </div>
