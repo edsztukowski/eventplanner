@@ -42,6 +42,12 @@ export default (state = eventDefaultState, action = {}) => {
                     }
                 })
             }
+        case 'SET_EVENTS': 
+            return {
+                allEvents: [
+                    ...action.events
+                ]
+            }
         default: 
             return state;
     };

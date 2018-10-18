@@ -1,11 +1,11 @@
 import AddEventForm from './AddEventForm';
 import React from 'react';
 import { connect } from 'react-redux';
-import { addEvent } from '../actions/events';
+import { startAddEvent } from '../actions/events';
 
 export class AddEventPage extends React.Component {
     onSubmit = (event) => {
-        this.props.addEvent(event);
+        this.props.startAddEvent(event);
         this.props.history.push('/calendar');
     }
     
@@ -17,7 +17,7 @@ export class AddEventPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    addEvent: (event) => dispatch(addEvent(event))
+    startAddEvent: (event) => dispatch(startAddEvent(event))
 })
 
 const mapStateToProps = (state) => ({
