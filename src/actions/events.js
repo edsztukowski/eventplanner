@@ -11,16 +11,16 @@ export const startAddEvent = (eventData = {}) => {
             _id = '',
             name = '',
             startDateTime = '',
+            endDateTime = '',
             classes = '',
             description = '',
             duration = ''
         } = eventData;
-        const event = { _id, name, startDateTime, classes, description, duration };
+        const event = { _id, name, startDateTime, endDateTime, classes, description, duration };
 
         database.ref('events/allevents').push(event).then(() => {
-            dispatch(addEvent(
-                event
-            ));
+            dispatch(addEvent(event));
+            
         });
     };
 }
@@ -46,18 +46,18 @@ export const setEvents = (events) => ({
     events
 });
 
-export const startSetEvents = () => {
-    return (dispatch, getState) => {
-        return database.ref(`events/allevents`).once('value')
-        .then((snapshot) => {
-            const events = [];
+// export const startSetEvents = () => {
+//     return (dispatch, getState) => {
+//         return database.ref(`events/allevents`).once('value')
+//         .then((snapshot) => {
+//             const events = [];
 
-            snapshot.forEach((childSnapshot) => {
-                events.push({
-                    ...childSnapshot.val()
-                });
-            });
-            dispatch(setEvents(events));
-        });
-    }
-}
+//             snapshot.forEach((childSnapshot) => {
+//                 events.push({
+//                     ...childSnapshot.val()
+//                 });
+//             });
+//             dispatch(setEvents(events));
+//         });
+//     }
+// }

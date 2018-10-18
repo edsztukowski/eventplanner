@@ -1,7 +1,5 @@
 import React from 'react';
-
 import Kronos from 'react-kronos';
-
 
 export default class AddEventForm extends React.Component {
     constructor(props) {

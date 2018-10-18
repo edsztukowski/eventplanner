@@ -1,8 +1,7 @@
 
  
 const eventDefaultState = {
-    allEvents: [
-    ],
+    allEvents: [],
     tempEvent: {}
 }
 

@@ -6,7 +6,9 @@ import { startAddEvent } from '../actions/events';
 export class AddEventPage extends React.Component {
     onSubmit = (event) => {
         this.props.startAddEvent(event);
-        this.props.history.push('/calendar');
+
+        //replace this with some kind of promise on database return
+        setTimeout(() => { this.props.history.push('/calendar'); }, 500);
     }
     
     render() {
