@@ -50,7 +50,7 @@ handleItemEdit(item){
 }
 handleRangeSelection(item){
   console.log('handleRangeSelection', item)
-}
+}test
   render() {
     return (
       <div>
