@@ -15,7 +15,7 @@ export const startAddEvent = (eventData = {}) => {
             classes = '',
             description = ''
         } = eventData;
-        const event = { _id, name, startDateTime: Date(startDateTime), endDateTime: Date( endDateTime), classes, description};
+        const event = { _id, name, startDateTime: startDateTime.toString(), endDateTime:  endDateTime.toString(), classes, description};
         console.log('event', event)
         return database.ref(`events/allevents/${event._id}`).set(event).then(() => {
             dispatch(addEvent(event));
