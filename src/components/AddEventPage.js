@@ -8,9 +8,6 @@ export class AddEventPage extends React.Component {
         this.props.startAddEvent(event).then(() => {
             this.props.history.push('/calendar');
         });
-
-        // //replace this with some kind of promise on database return
-        // setTimeout(() => { this.props.history.push('/calendar'); }, 500);
     }
     
     render() {

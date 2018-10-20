@@ -50,8 +50,11 @@ handleItemEdit(item){
 }
 handleRangeSelection(item){
   console.log('handleRangeSelection', item)
-}test
+}
+
+
   render() {
+    console.log('calender rendering')
     return (
       <div>
         <ReactAgenda

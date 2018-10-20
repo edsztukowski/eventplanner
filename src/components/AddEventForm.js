@@ -34,7 +34,7 @@ export default class AddEventForm extends React.Component {
                 name: this.state.name,
                 startDateTime: new Date(this.state.startDateTime),
                 endDateTime: new Date(this.state.endDateTime),
-                classes       : 'color-2 color-3',
+                classes: 'color-2 color-3',
                 description: this.state.description
             })
         }

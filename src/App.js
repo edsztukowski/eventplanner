@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import {connect} from 'react-redux';
-
+import store from './store/store';
 import AppRouter from './routers/AppRouter';
 
 
@@ -22,6 +21,8 @@ class App extends Component {
     );
   }
 }
+
+
 const mapStateToProps = state => ({
   ...state
  })

@@ -9,7 +9,7 @@ const employeeDefaultState = [
     },
     {
         firstName: 'Courtney',
-        lastName: 'Croft',
+        lastName: 'Sztukowski',
         age: 29,
         position: 'Mrs. Manager',
         hourlyWage: 300,
