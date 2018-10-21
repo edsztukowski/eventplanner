@@ -1,23 +1,25 @@
 import EditEventForm from './EditEventForm';
 import React from 'react';
 import { connect } from 'react-redux';
-import { editEvent, removeEvent } from '../actions/events';
+import { startEditEvent, startRemoveEvent } from '../actions/events';
 
 export class EditEventPage extends React.Component {
     onSubmit = (event) => {
-        this.props.editEvent(this.props.event._id, event);
-        this.props.history.push('/calendar');
+        this.props.startEditEvent(this.props.event._id, event).then(() => {
+            this.props.history.push('/calendar');
+        });
     }
     onRemove = () => {
-        this.props.removeEvent(this.props.event._id);
-        this.props.history.push('/');
+        this.props.startRemoveEvent(this.props.event._id).then(() => {
+            this.props.history.push('/calendar');
+        });
     }
     
     render() {
         return (
            <div>
                 <EditEventForm onSubmit={this.onSubmit} eventToEdit={this.props.event} />
-                <button onClick={this.onRemove}>Remove</button>
+                <button className="delete" onClick={this.onRemove}>Remove</button>
            </div>
            
         )
@@ -25,8 +27,8 @@ export class EditEventPage extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-    editEvent: (eventId, updates) => dispatch(editEvent(eventId, updates)),
-    removeEvent: (eventId) => dispatch(removeEvent(eventId))
+    startEditEvent: (eventId, updates) => dispatch(startEditEvent(eventId, updates)),
+    startRemoveEvent: (eventId) => dispatch(startRemoveEvent(eventId))
 })
 
 const mapStateToProps = (state, props) => ({

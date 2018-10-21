@@ -19,7 +19,7 @@ class Calendar extends React.Component {
     this.state = {
       items: props.events,
       selected:[],
-      cellHeight:30,
+      cellHeight:60,
       showModal:false,
       locale:"us",
       rowsPerHour:2,
@@ -28,7 +28,6 @@ class Calendar extends React.Component {
     }
     this.handleCellSelection = this.handleCellSelection.bind(this)
     this.handleItemEdit = this.handleItemEdit.bind(this)
-    this.handleRangeSelection = this.handleRangeSelection.bind(this)
   }
  
 handleCellSelection(item){
@@ -45,20 +44,15 @@ handleCellSelection(item){
 };
 
 handleItemEdit(item){
-  console.log('handleItemEdit', item)
   this.props.history.push(`/edit/${item._id}`)
-}
-handleRangeSelection(item){
-  console.log('handleRangeSelection', item)
 }
 
 
   render() {
-    console.log('calender rendering')
     return (
       <div>
         <ReactAgenda
-          startAtTime={10}
+          startAtTime={900}
           minDate={now}
           maxDate={new Date(now.getFullYear(), now.getMonth()+3)}
           disablePrevButton={false}
@@ -72,8 +66,7 @@ handleRangeSelection(item){
           autoScale={false}
           fixedHeader={true}
           onItemEdit={this.handleItemEdit.bind(this)}
-          onCellSelect={this.handleCellSelection.bind(this)}
-          onRangeSelection={this.handleRangeSelection.bind(this)}/>
+          onCellSelect={this.handleCellSelection.bind(this)}/>
       </div>
     );
   }

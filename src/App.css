@@ -37,10 +37,74 @@
 }
 
 /*Form Styles*/
+.form-container {
+  width: 800px;
+  margin: 0 auto;
+}
+.form {
+  background: #9c89d3;
+  padding: 1rem 2em 2em 1em;
+  color: #fff;
+}
 
+.times {
+  display: flex;
+  justify-content: space-around;
+}
+
+input.text-input,
+.times input {
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px
+}
+
+div#event-description {
+  margin-top: 3rem;
+}
+
+#event-description textarea {
+  height: 100px;
+  width: 580px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  padding: 10px
+}
 
 /**Layout**/
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.align-left {
+  text-align: left;
+}
+
+/*buttons*/
+.form button {
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+  width: 200px;
+  height: 60px;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.form button.save {
+
+  font-size: 1rem;
+}
+
+button.save:hover {
+  background: #8effc1;
+  color: #333;
+  border: #8effc1;
+  cursor: pointer;
+
 }

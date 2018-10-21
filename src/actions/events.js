@@ -16,7 +16,6 @@ export const startAddEvent = (eventData = {}) => {
             description = ''
         } = eventData;
         const event = { _id, name, startDateTime: startDateTime.toString(), endDateTime:  endDateTime.toString(), classes, description};
-        console.log('event', event)
         return database.ref(`events/allevents/${event._id}`).set(event).then(() => {
             dispatch(addEvent(event));
             
@@ -35,10 +34,27 @@ export const editEvent = (eventId, updates) => ({
     updates
 });
 
+export const startEditEvent = (eventId, updates) => {
+    return (dispatch, getState) => {
+        return database.ref(`events/allevents/${eventId}`).update(updates).then(() => {
+            dispatch(editEvent(eventId, updates));
+        })
+    }
+}
+
 export const removeEvent = (eventId) => ({
     type: 'REMOVE_EVENT',
     eventId
 })
+
+export const startRemoveEvent = (eventId) => {
+    return (dispatch, getState) => {
+        return database.ref(`events/allevents/${eventId}`).remove()
+        .then(() => {
+            dispatch(removeEvent(eventId))
+        })
+    }
+}
 
 export const setEvents = (events) => ({
     type: 'SET_EVENTS',
@@ -55,7 +71,6 @@ export const startSetEvents = () => {
                 events.push({
                     ...childSnapshot.val()
                 });
-                console.log(events)
             });
             dispatch(setEvents(events));
         });

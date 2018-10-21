@@ -64,38 +64,49 @@ export default class AddEventForm extends React.Component {
 
     render() {
         return (
-            <form className="form" onSubmit={this.onSubmit}>
-            {this.state.error && <p className="form__error">{this.state.error}</p>}
-                <input 
-                    className="text-input"
-                    type="text"
-                    placeholder="Event Name"
-                    autoFocus
-                    value={this.state.name}
-                    onChange={this.onNameChange}
-                />
-                <h2>Start Time</h2>
-                <Kronos
-                    time={this.state.startDateTime}
-                    onChangeDateTime={this.onStartDateChange}
-                />
-                <h2>End Time</h2>
-                <Kronos
-                    time={this.state.endDateTime}
-                    onChangeDateTime={this.onEndDateChange}
-                    min={this.state.startDateTime}
-                />
-                <div id="event-description">
-                    <textarea 
-                        placeholder="Event Description"
-                        value={this.state.description} 
-                        onChange={this.onDescriptionChange} />
+            <div className="form-container">
+                <h2 className="align-left">Add a new Event</h2>
+                <form className="form" onSubmit={this.onSubmit}>
+                {this.state.error && <p className="form__error">{this.state.error}</p>}
+                    <h2>Title</h2>
+                    <input 
+                        className="text-input"
+                        type="text"
+                        placeholder="Event Name"
+                        autoFocus
+                        value={this.state.name}
+                        onChange={this.onNameChange}
+                    />
+                    <div className="times">
+                        <div className="flex-col">
+                            <h2>Start Time</h2>
+                            <Kronos
+                                time={this.state.startDateTime}
+                                onChangeDateTime={this.onStartDateChange}
+                            />
+                        </div>
+                        <div className="flex-col">
+                            <h2>End Time</h2>
+                            <Kronos
+                                time={this.state.endDateTime}
+                                onChangeDateTime={this.onEndDateChange}
+                                min={this.state.startDateTime}
+                            />
+                        </div>
+                    </div>
+                    
+                    <div id="event-description">
+                        <textarea 
+                            placeholder="Event Description"
+                            value={this.state.description} 
+                            onChange={this.onDescriptionChange} />
+                    </div>
+                
+                <div>
+                        <button className="save">Save Event</button>
                 </div>
-               
-               <div>
-                    <button className="button__blue">Save Event</button>
-               </div>
-            </form>
+                </form>
+            </div>
         )
     }
 }
